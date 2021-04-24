@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+      crossorigin="anonymous"
+    ></script>
+    <!-- google font  -->
+    <link href="https://fonts.googleapis.com/css?family=EB+Garamond:700&display=swap" rel="stylesheet">
+    
+    <!-- Latest compiled and minified CSS -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+      integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="nav.css">
+  <style>
+    body {
+  /* font-family: Arial, Helvetica, sans-serif; */
+  font-family: 'EB Garamond', serif;
+}
+  </style>
+    <!-- Optional theme -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+      integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
+      crossorigin="anonymous"
+    />
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+      integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+      crossorigin="anonymous"
+    ></script>
+    <!-- plotly js  -->
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <!-- navbar  -->
+    <nav>
+      <ul class="nav-links ">
+        <li>
+          <a href="index.html" style="margin-right: auto;"
+            ><img src="img/icon_germ.jpg" class="img" alt="corona" srcset=""
+          /></a>
+        </li>
+        <li><a style="cursor: none; color:transparent;">......</a></li>
+        <li><a style="cursor: none; color:transparent;">......</a></li>
+        <li><a style="cursor: none; color:transparent;">......</a></li>
+        <li><a style="cursor: none; color:transparent;">......</a></li>
+        <li><a style="cursor: none; color:transparent;">......</a></li>
+        
+        <li><a href="search.html">District level data</a></li>
+        <li>
+          <a href="https://covid.apollo247.com/">Coronavirus Risk Scan</a>
+        </li>
+        <li><a href="desktop_precautions.html">Precaution</a></li>
+        <li>
+          <a href="https://www.mohfw.gov.in/pdf/coronvavirushelplinenumber.pdf"
+            >Helpline</a
+          >
+        </li>
+        <li><a href="desktop_mythbusters.html">Mythbuster</a></li>
+      </ul>
+      <div class="icon_mob">
+        <li> <a href="index.html" style="margin-right: auto;"><img style="width: 9vmin;" src="img/icon_germ.jpg" class="img" alt="corona" srcset=""></a></li>
+      </div>
+      <div class="hamburger">
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+      </div>
+      <ul class="mob-nav-links text-dark">
+        <li><a href="search.html">District level data</a></li>
+        <li>
+          <a href="https://covid.apollo247.com/ ">Coronavirus Risk Scan</a>
+        </li>
+        <li><a href="mobile_precautions.html">Precaution</a></li>
+        <li>
+          <a href="https://www.mohfw.gov.in/pdf/coronvavirushelplinenumber.pdf"
+            >Helpline</a
+          >
+        </li>
+        <li><a href="mobile_mythbusters.html">Mythbuster</a></li>
+      </ul>
+    </nav>
+    <script src="app.js"></script>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 text-capitalize">
+          <h1 class="text-center">
+            District Wise Data
+          </h1>
+          <h3 class="text-center ">
+            know the situation of your state
+          </h3>
+          <!-- bootstrap form  -->
+          <div>
+            <form class="form-horizontal" action="#">
+              <div class="form-group">
+                <label class="control-label col-sm-2" >Enter Your State:</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="myInput" placeholder="Enter Your State">
+                </div>
+              </div>
+              
+              <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                  <button type="button" class="btn btn-default btn-link" id="myBtn">Submit</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <!-- table  -->
+        <div id="no-more-tables">
+          <table
+            class="col-md-12 table-bordered table-striped table-condensed cf"
+            id="table"
+          >
+            <thead class="cf">
+              <tr>
+                <th>State / UT</th>
+                <th class="numeric">District</th>
+                <th class="numeric">Confirmed cases</th>
+                <th class="numeric">Active cases</th>
+                <th class="numeric">Recovered cases</th>
+                <th class="numeric">Deceased</th>
+              </tr>
+            </thead>
+            <tbody id="tbody"></tbody>
+          </table>
+        </div>
+        
+      </div>
+      <div class="row">
+        <div class="col-md-12 text-capitalize text-center text-info">
+          <div>
+            <h3 id='ending'></h3>
+          </div>
+      </div>
+    </div>
+    <!-- dccd  -->
+    <div class="row">
+      <div class="col-md-12 text-capitalize text-center text-info">
+        <div>
+          <h3 id='ending1'></h3>
+        </div>
+    </div>
+  </div>
+    <div id="test"></div>
+    <script src="js/search.js"></script>
+  </body>
+</html>
