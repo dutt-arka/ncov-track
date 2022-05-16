@@ -53,7 +53,7 @@ $.getJSON("india_states.geojson", function(data) {
 // https://api.covid19india.org/data.json Old Link
   var datalayer = L.geoJson(data, {
     onEachFeature: function(feature, featureLayer) {
-      $.getJSON("https://data.incovid19.org/v4/min/data.min.json", function(datax) {
+      $.getJSON("https://data.incovid19.org/v4/min/timeseries.min.json", function(datax) {
         $.each(datax["statewise"], function(key, val) {
           if (val.state != "Total") {
             if (val.state == feature.properties.name) {
